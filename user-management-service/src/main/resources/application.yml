@@ -1,0 +1,34 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-management-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ecommerce_users
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+jwt:
+  secret: H2jd7lK!9$3mP4@fGzXq8#cR5bNvW0tYpAoE6uJkMiT1sQwLrVx9Z3nB7%FgXq!
+  expiration: 86400000
+
+logging:
+  level:
+    com.ecommerce.user: DEBUG
